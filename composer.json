@@ -1,0 +1,18 @@
+{
+	"name": "hettiger/keywordsHandler",
+    "description": "Handle strings and arrays of keywords for the purposes of storage in a database or output to a view.",
+    "authors": [
+        {
+            "name": "Martin Hettiger",
+            "email": "martin@hettiger.com"
+        }
+    ],
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*"
+	},
+	"autoload": {
+		"classmap": [
+			"app"
+		]
+	}
+}
