@@ -14,14 +14,7 @@ class KeywordsHandler {
 	*/
 	public function getSeparatedKeywords($keywordsString)
 	{
-		$keywordsSeparated = explode(',', $keywordsString);
-
-		foreach ($keywordsSeparated as $keyword)
-		{
-			$keywords[] = trim($keyword);
-		}
-
-		return $keywords;
+		return array_map('trim', explode(',', $keywordsString));
 	}
 
 	/**
@@ -30,12 +23,7 @@ class KeywordsHandler {
 	*/
 	private function uppercaseSeparatedKeywords($separatedKeywords)
 	{
-		foreach ($separatedKeywords as $keyword)
-		{
-			$uppercaseSeparatedKeywords[] = ucfirst($keyword);
-		}
-
-		return $uppercaseSeparatedKeywords;
+		return array_map('ucfirst', $separatedKeywords);
 	}
 
 	/**
@@ -67,18 +55,6 @@ class KeywordsHandler {
 	*/
 	public function getKeywordsString($keywordsArray)
 	{
-		$keywordsString = '';
-		foreach ($keywordsArray as $keyword) 
-		{
-			if (empty($keywordsString)) 
-			{
-				$keywordsString = $keyword;
-				continue;
-			}
-
-			$keywordsString = $keywordsString . ', ' . $keyword;
-		}
-
-		return $keywordsString;
+		return join(', ', $keywordsArray);
 	}
 }
