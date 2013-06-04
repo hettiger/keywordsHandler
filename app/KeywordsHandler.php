@@ -21,32 +21,13 @@ class KeywordsHandler {
 	* @param array
 	* @return array
 	*/
-	private function uppercaseSeparatedKeywords($separatedKeywords)
-	{
-		return array_map('ucfirst', $separatedKeywords);
-	}
-
-	/**
-	* @param array
-	* @return array
-	*/
-	private function orderUppercaseSeparatedKeywords($uppercaseSeparatedKeywords)
-	{
-		sort($uppercaseSeparatedKeywords);
-		return $uppercaseSeparatedKeywords;
-	}
-
-	/**
-	* @param array
-	* @return array
-	*/
 	public function getTidySeparatedKeywords($keywordsString)
 	{
-		$separated = $this->getSeparatedKeywords($keywordsString);
-		$uppercased = $this->uppercaseSeparatedKeywords($separated);
-		$ordered = $this->orderUppercaseSeparatedKeywords($uppercased);
+		$separatedKeywords = $this->getSeparatedKeywords($keywordsString);
+		$tidyKeywords = array_map('ucfirst', $separatedKeywords);
+		sort($tidyKeywords);
 
-		return $ordered;
+		return $tidyKeywords;
 	}
 
 	/**
@@ -55,6 +36,6 @@ class KeywordsHandler {
 	*/
 	public function getKeywordsString($keywordsArray)
 	{
-		return join(', ', $keywordsArray);
+		return implode(', ', $keywordsArray);
 	}
 }
